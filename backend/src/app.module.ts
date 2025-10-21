@@ -40,7 +40,8 @@ import { UsersModule } from './users/users.module';
     // Feature Modules (Core Only - MVP)
     AuthModule,
     UsersModule,
-    // OrdersModule,      // TODO: Implementar en Sprint 2
+    OrdersModule,
+    ServicesModule,
     // PaymentsModule,     // TODO: Implementar en Sprint 2
     // ChatModule,         // TODO: Implementar en Sprint 2
     // ReviewsModule,      // TODO: Implementar en Sprint 2
