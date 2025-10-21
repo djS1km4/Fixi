@@ -11,6 +11,9 @@ import { UserRole, UserStatus, VerificationStatus } from '../enums/user-role.enu
 import { ServiceEntity } from '../../services/entities/service.entity';
 import { OrderEntity } from '../../orders/entities/order.entity';
 import { ReviewEntity } from '../../reviews/entities/review.entity';
+import { MessageEntity } from './message.entity';
+import { ConversationEntity } from './conversation.entity';
+import { PaymentEntity } from './payment.entity';
 
 @Entity('users')
 @Index('idx_users_email')
@@ -127,6 +130,24 @@ export class UserEntity extends BaseEntity {
 
   @OneToMany(() => ReviewEntity, review => review.customer)
   customerReviews?: ReviewEntity[];
+
+  @OneToMany(() => MessageEntity, message => message.sender)
+  sentMessages?: MessageEntity[];
+
+  @OneToMany(() => MessageEntity, message => message.receiver)
+  receivedMessages?: MessageEntity[];
+
+  @OneToMany(() => ConversationEntity, conversation => conversation.participant1)
+  conversationsAsParticipant1?: ConversationEntity[];
+
+  @OneToMany(() => ConversationEntity, conversation => conversation.participant2)
+  conversationsAsParticipant2?: ConversationEntity[];
+
+  @OneToMany(() => MessageRead, messageRead => messageRead.user)
+  readMessages?: MessageRead[];
+
+  @OneToMany(() => PaymentEntity, payment => payment.user)
+  payments?: PaymentEntity[];
 
   @Column({ type: 'timestamp', nullable: true })
   createdAt: Date;

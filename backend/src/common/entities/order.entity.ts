@@ -8,6 +8,9 @@ import {
 } from 'typeorm';
 import { BaseEntity } from './base.entity';
 import { UserEntity } from './user.entity';
+import { PaymentEntity } from './payment.entity';
+import { MessageEntity } from './message.entity';
+import { ReviewEntity } from './review.entity';
 import { OrderStatus } from '../enums/order-status.enum';
 
 @Entity('orders')
@@ -32,17 +35,26 @@ export class OrderEntity extends BaseEntity {
     estimatedDuration?: number;
   };
 
-  @Column({ type: 'decimal', precision: 10, scale: 2 })
+  @Column({ type: 'decimal', precision: 12, scale: 2 })
   estimatedPrice: number;
 
-  @Column({ type: 'decimal', precision: 10, scale: 2 })
+  @Column({ type: 'decimal', precision: 12, scale: 2 })
   finalPrice: number;
 
-  @Column({ type: 'decimal', precision: 10, scale: 2, nullable: true })
+  @Column({ type: 'decimal', precision: 12, scale: 2, nullable: true })
+  taxAmount: number;
+
+  @Column({ type: 'decimal', precision: 12, scale: 2, nullable: true })
   platformFee: number;
 
-  @Column({ type: 'decimal', precision: 10, scale: 2 })
+  @Column({ type: 'decimal', precision: 12, scale: 2 })
   technicianAmount: number;
+
+  @Column({ type: 'decimal', precision: 12, scale: 2 })
+  totalAmount: number;
+
+  @Column({ type: 'timestamp', nullable: true })
+  paidAt?: Date;
 
   @Column({
     type: 'enum',
@@ -106,6 +118,9 @@ export class OrderEntity extends BaseEntity {
 
   @OneToMany(() => ReviewEntity, review => review.order)
   reviews?: ReviewEntity[];
+
+  @OneToMany(() => PaymentEntity, payment => payment.order)
+  payments?: PaymentEntity[];
 
   @Column({ type: 'varchar', length: 255, nullable: true })
   stripePaymentIntentId?: string;
