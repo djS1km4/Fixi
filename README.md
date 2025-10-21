@@ -118,7 +118,7 @@ Este es un proyecto comercial privado. Para información sobre colaboraciones o 
 
 ## 📄 Licencia
 
-**Proprietary License** - Todos los derechos reservados. Copyright © 2025 Fixi
+**Proprietary License** - Todos los derechos reservados. Copyright © 2025 Sikma
 
 ## 📞 Contacto
 
