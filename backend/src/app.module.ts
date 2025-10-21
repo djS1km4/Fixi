@@ -3,13 +3,13 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
-import { OrdersModule } from './orders/orders.module';
-import { PaymentsModule } from './payments/payments.module';
-import { ChatModule } from './chat/chat.module';
-import { ReviewsModule } from './reviews/reviews.module';
-import { NotificationsModule } from './notifications/notifications.module';
-import { BillingModule } from './billing/billing.module';
-import { CommonModule } from './common/common.module';
+// import { OrdersModule } from './orders/orders.module';
+// import { PaymentsModule } from './payments/payments.module';
+// import { ChatModule } from './chat/chat.module';
+// import { ReviewsModule } from './reviews/reviews.module';
+// import { NotificationsModule } from './notifications/notifications.module';
+// import { BillingModule } from './billing/billing.module';
+// import { CommonModule } from './common/common.module';
 
 @Module({
   imports: [
@@ -37,16 +37,16 @@ import { CommonModule } from './common/common.module';
       inject: [ConfigService],
     }),
 
-    // Feature Modules
+    // Feature Modules (Core Only - MVP)
     AuthModule,
     UsersModule,
-    OrdersModule,
-    PaymentsModule,
-    ChatModule,
-    ReviewsModule,
-    NotificationsModule,
-    BillingModule,
-    CommonModule,
+    // OrdersModule,      // TODO: Implementar en Sprint 2
+    // PaymentsModule,     // TODO: Implementar en Sprint 2
+    // ChatModule,         // TODO: Implementar en Sprint 2
+    // ReviewsModule,      // TODO: Implementar en Sprint 2
+    // NotificationsModule, // TODO: Implementar en Sprint 2
+    // BillingModule,      // TODO: Implementar en Sprint 2
+    // CommonModule,       // TODO: Implementar en Sprint 2
   ],
   controllers: [],
   providers: [],

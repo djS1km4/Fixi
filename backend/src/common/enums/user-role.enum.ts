@@ -1,0 +1,20 @@
+export enum UserRole {
+  CLIENT = 'CLIENT',
+  TECHNICIAN = 'TECHNICIAN',
+  ADMIN = 'ADMIN',
+}
+
+export enum UserStatus {
+  ACTIVE = 'ACTIVE',
+  INACTIVE = 'INACTIVE',
+  PENDING_VERIFICATION = 'PENDING_VERIFICATION',
+  SUSPENDED = 'SUSPENDED',
+  DELETED = 'DELETED',
+}
+
+export enum VerificationStatus {
+  NOT_VERIFIED = 'NOT_VERIFIED',
+  PENDING = 'PENDING',
+  VERIFIED = 'VERIFIED',
+  REJECTED = 'REJECTED',
+}
